@@ -1,124 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-  <meta charset="utf-8" />
-  <title>نظام الحضور - مدارس الأحد</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="attendance_style.css">
-
-  <!-- Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-</head>
-
-<body>
-
-  <!-- ✅ شاشة تسجيل الدخول -->
-  <div id="auth-screen" class="screen">
-    <div class="auth-box">
-      <h1>نظام حضور مدارس الأحد</h1>
-      <div class="avatar-large">
-      </div>
-      <input type="text" id="login-username" placeholder="اسم المستخدم" />
-      <input type="password" id="login-password" placeholder="كلمة السر" />
-      <div class="row">
-        <button id="btn-login" class="btn">تسجيل دخول</button>
-      </div>
-      <div id="login-msg" class="muted" style="margin-top:8px"></div>
-    </div>
-  </div>
-
-  <!-- ✅ التطبيق الرئيسي -->
-  <div id="attendance-app" class="screen hidden">
-
-    <!-- لا يوجد بار علوي هنا بناءً على طلبك -->
-
-    <div class="panel content-panel">
-      <div id="attendance-tabs" class="tabs"></div>
-
-      <div id="view-container">
-
-        <!-- 👤 شاشة المستخدم -->
-        <div id="user-view" class="view hidden">
-          <h3>عرض الحضور للشهر: <span id="view-month-label"></span></h3>
-          <div class="readonly-tables">
-            <div class="card small-card">
-              <h4>الحضور</h4>
-              <div id="user-attendance-table" class="table-wrap"></div>
-            </div>
-            <div class="card small-card">
-              <h4>السلوك فى الخدمة</h4>
-              <div id="user-behavior-table" class="table-wrap"></div>
-            </div>
-            <div class="card small-card">
-              <h4>التفاعل مع الخدام</h4>
-              <div id="user-interaction-table" class="table-wrap"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 👨‍🏫 شاشة المشرف الفرعي -->
-        <div id="subadmin-view" class="view hidden">
-          <div class="subadmin-controls">
-            <div id="sub-tabs" class="tabs local">
-              <button data-tab="attendance" class="tab-btn active">📅 تسجيل الحضور</button>
-              <button data-tab="behavior" class="tab-btn">😇 تسجيل السلوك</button>
-              <button data-tab="interaction" class="tab-btn">💬 تسجيل التفاعل</button>
-              <button data-tab="visitations" class="tab-btn">❤️ الافتقاد </button>
-            </div>
-
-            <div id="sub-table-wrap" class="table-wrap"></div>
-
-            <div class="sub-actions">
-              <button id="sub-save" class="btn">💾 حفظ البيانات</button>
-              <button id="sub-export-excel" class="btn">📤 تصدير Excel</button>
-              <div id="sub-alerts" class="alerts"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 👑 شاشة الأدمن -->
-        <div id="admin-view" class="view hidden">
-          <div class="admin-panel">
-            <div class="admin-top">
-              <label>اختر المرحلة:</label>
-              <select id="admin-stage-picker" class="input"></select>
-            </div>
-
-            <div id="admin-tables" class="table-wrap"></div>
-
-            <div class="admin-actions">
-              <button id="admin-save" class="btn">💾 حفظ البيانات</button>
-              <button id="admin-export-excel" class="btn">📥 تحميل Excel</button>
-              <button id="admin-chart" class="btn ghost">📊 عرض الإحصائية</button>
-            </div>
-
-            <div id="admin-chart-wrap" class="card chart-card hidden">
-              <canvas id="adminChart"></canvas>
-            </div>
-
-            <div id="admin-alerts" class="alerts"></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="panel footer-panel">
-      <button id="btn-prev-month" class="btn small">⏪ الشهر السابق</button>
-      <button id="btn-go-current" class="btn small hidden">⏩ الشهر الحالي</button>
-      <button id="btn-logout" class="btn ghost small">تسجيل خروج</button>
-    </div>
-  </div>
-
-  <!-- ✅ Toast -->
-  <div id="att-toast" class="toast hidden"></div>
-
-  <!-- ✅ JS -->
-  <script src="attendance_app.js"></script>
-</body>
-
-</html>
