@@ -1,0 +1,255 @@
+:root {
+  --bg-img: url("https://i.postimg.cc/Fzvtrr8T/0983f011e33a0e7eba10304581983535.jpg");
+  --accent1: #ff4976;
+  --accent2: #ff7a2e;
+  --panel-bg: rgba(255, 255, 255, 0.82);
+  --glass: rgba(255, 255, 255, 0.35);
+  --success: #2e7d32;
+  --danger: #c62828;
+  --muted: #666;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  direction: rtl;
+  background: var(--bg-img) center/cover fixed no-repeat;
+  color: #222;
+  font-size: 16px;
+}
+
+/* Screens */
+.screen {
+  padding: 18px;
+  max-width: 1100px;
+  margin: 20px auto;
+}
+.hidden {
+  display: none !important;
+}
+
+/* ✅ شاشة تسجيل الدخول */
+.auth-box {
+  width: 380px;
+  max-width: calc(100% - 40px);
+  text-align: center;
+  padding: 28px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.32);
+  border: 3px solid rgba(0, 0, 0, 0.28);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  margin: 50px auto;
+}
+.auth-box h1 {
+  margin: 6px 0 12px 0;
+  font-size: 22px;
+}
+.avatar-large img {
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.auth-box input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+/* Panels */
+.panel {
+  background: var(--panel-bg);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  margin-bottom: 10px;
+}
+
+/* buttons */
+.btn {
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  font-weight: 700;
+  transition: transform 0.12s, opacity 0.12s;
+}
+.btn.ghost {
+  background: transparent;
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.btn.small {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+/* inputs */
+.input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+}
+.input.small {
+  width: 160px;
+}
+
+/* content */
+.content-panel {
+  margin-top: 12px;
+}
+
+/* tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tab-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.tab-btn.active {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: #fff;
+  font-weight: 800;
+}
+
+/* cards */
+.card {
+  background: var(--glass);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.small-card {
+  display: inline-block;
+  width: 32%;
+  vertical-align: top;
+}
+.readonly-tables {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* table wrap */
+.table-wrap {
+  overflow: auto;
+  margin-top: 8px;
+  max-height: 480px;
+}
+
+/* table styles */
+.att-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: 700;
+  text-align: center;
+}
+.att-table th,
+.att-table td {
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.att-table th {
+  background: rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+}
+.cell-plus {
+  color: #fff;
+  background: var(--success);
+  border-radius: 6px;
+}
+.cell-minus {
+  color: #fff;
+  background: var(--danger);
+  border-radius: 6px;
+}
+.cell-empty {
+  color: var(--muted);
+  background: transparent;
+}
+
+/* responsive: mobile vertical style */
+@media (max-width: 880px) {
+  .small-card {
+    width: 100%;
+  }
+  .readonly-tables {
+    flex-direction: column;
+  }
+}
+
+/* alerts */
+.alerts {
+  margin-top: 8px;
+  color: var(--danger);
+  font-weight: 800;
+  text-align: center;
+}
+
+/* footer */
+.footer-panel {
+  margin-top: 12px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* toast */
+.toast {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+.toast.hidden {
+  display: none;
+}
+
+/* chart */
+.chart-card {
+  padding: 14px;
+}
+
+/* row utility */
+.row {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
